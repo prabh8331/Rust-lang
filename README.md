@@ -19,3 +19,24 @@ ssh -T git@github.com
 git branch -M main
 git remote add origin git@github.com:prabh8331/Rust-lang.git
 git push -u origin main
+
+## Installing the rust
+https://www.rust-lang.org/
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+rustc --version
+cargo --verson
+
+to update the rust
+rustup update
+
+to install all the depencenty in ubuntu
+sudo apt update
+sudo apt install build-essential
+
+
+### installing the vscode extensions for rust
+rust-analyzer
+Rust Syntax
+Dependi
+
