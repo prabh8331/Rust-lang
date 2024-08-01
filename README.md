@@ -14,3 +14,8 @@ cat id_ed25519.pub (copy)
 go to github>settings>ssh and GPG keys > new ssh key > paste the key
 
 ssh -T git@github.com
+
+
+git branch -M main
+git remote add origin git@github.com:prabh8331/Rust-lang.git
+git push -u origin main
