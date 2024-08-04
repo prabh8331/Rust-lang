@@ -63,5 +63,5 @@ fn main() {
     println!("x1 is: {}, x2 is: {}", x1, x2);
     }
 
-
+    data_type::data_types()
 }
