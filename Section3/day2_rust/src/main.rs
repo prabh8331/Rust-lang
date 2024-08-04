@@ -1,3 +1,7 @@
+mod data_type;
+mod compound_data_type;
+
+
 fn main() {
     // Variables
     // Define the variable, based on the variable value rust will annotate type
@@ -63,5 +67,11 @@ fn main() {
     println!("x1 is: {}, x2 is: {}", x1, x2);
     }
 
-    data_type::data_types()
+
+    // This section covers the data types which holds sigle values 
+    data_type::data_types();
+
+    // This section covers the compound data_types which can hold multiple data types 
+    compound_data_type::compound_data_types();
+
 }
