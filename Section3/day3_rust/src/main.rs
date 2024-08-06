@@ -5,7 +5,7 @@
 //          - Code Blocks
 //  ----------------------------
 
-
+mod conditionals;
 // main funciton which executes first
 fn main() {
 
@@ -41,6 +41,12 @@ fn main() {
     // 2. code blocks don't have any explicit parameters
     // 3. all variables in the scope in which the code block lies are visible to it
     // funciton have an explicit list of parameters and can oly have access to varialbles, which are either provied as parameter or are locally defined inside the funciton
+
+
+
+    // covering the conditionals topics
+    conditionals::conditional();
+
 
 }
 
