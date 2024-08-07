@@ -6,6 +6,7 @@
 //  ----------------------------
 
 mod conditionals;
+mod control_flow;
 // main funciton which executes first
 fn main() {
 
@@ -46,6 +47,9 @@ fn main() {
 
     // covering the conditionals topics
     conditionals::conditional();
+
+    // covering loops / control flow
+    control_flow::loops();
 
 
 }
