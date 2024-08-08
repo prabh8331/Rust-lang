@@ -137,7 +137,13 @@ fn main() {
     let mut square_of_sum = 0;
     let mut sum_of_squares = 0;
     
-    /* Complete the code after this line */ 
+    /* Complete the code after this line */
+    for i in 1..=n {
+        square_of_sum=square_of_sum+i;
+        sum_of_squares=sum_of_squares+i.pow(2);
+    }
+    println!("result: {}",square_of_sum.pow(2)-sum_of_squares)
+
 }
 
 
