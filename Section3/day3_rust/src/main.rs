@@ -7,6 +7,7 @@
 
 mod conditionals;
 mod control_flow;
+mod basics_comments_print_input_convention;
 // main funciton which executes first
 fn main() {
 
@@ -51,6 +52,9 @@ fn main() {
     // covering loops / control flow
     control_flow::loops();
 
+
+    // covering the basics like commenting , printing, inputs , variale convention etc. 
+    basics_comments_print_input_convention::basics_info();
 
 }
 

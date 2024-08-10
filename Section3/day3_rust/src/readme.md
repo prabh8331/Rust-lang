@@ -142,7 +142,7 @@ fn main() {
         square_of_sum=square_of_sum+i;
         sum_of_squares=sum_of_squares+i.pow(2);
     }
-    println!("result: {}",square_of_sum.pow(2)-sum_of_squares)
+    println!("result: {}",square_of_sum.pow(2)-sum_of_squares);
 
 }
 
@@ -184,6 +184,30 @@ fn main() {
     println!("result: {n_sum}");
     
 }
+
+
+// solution 2 \\
+
+    let numbers = 1..n;
+    let mut combined_list = vec![0];
+    for i in 1..n as usize {
+        if i % 3 == 0 || i % 5 == 0 {
+            combined_list.push(1)
+        } else {
+            combined_list.push(0);
+        }
+    }
+
+    let mut values_of_multiples: Vec<i32> = vec![0];
+    let mut summation = 0;
+    for i in 1..n {
+        values_of_multiples.push(combined_list[i as usize] * i);
+        summation += values_of_multiples[i as usize];
+    }
+
+    println!("\n\n The sum of the multiples are = {}\n\n", summation);
+
+
 
 ```
 
@@ -244,7 +268,94 @@ fn cars_produced_per_minutes(hours: u8, speed: u8) -> f32 {
     
 }
 
+// key point in both total_production and cars_produced_per_minutes the way when multiplicaton is done during the return
+// success_rate is f32, speed is convered into f32 and 60.0 (.0 is specified to make is floating point) .. because ingetger can't be multiplied by f32 in rust 
 
+
+```
+
+```rs
+// Problem 4:
+
+/*
+A palindrome is a word, verse, or sentence that reads the same backward or forward,
+such as 'Able was I ere I saw Elba,' or a number like 1881.
+
+Write a function named is_palindrome() that checks whether a given string is a palindrome or not.
+The function should take a string as input and return a boolean value indicating whether the string is a palindrome or not.
+*/
+
+fn main() {
+    let input = String::from("11211");
+    println!(
+        "It is {:?} that the given string is palindrome",
+        palindrome(input)
+    );
+}
+
+fn palindrome(input: String) -> bool {
+    /* Your Code here */
+    
+    // create a is_palindrome variable and as its value can be changed it is muitalble 
+    let mut is_palindrome = true;
+    
+    // if empty string the considering it as palindrome
+    if input.len() == 0 {
+        is_palindrome=true;
+    }
+    else {
+        // pull the first and last index of the sting
+        let mut last = input.len() -1;
+        let mut first = 0;
+        
+        // convert sting into - byte slice (&[u8])
+        let my_vec = input.as_bytes();
+        println!("{:?}",my_vec);
+        
+        while last>first {
+            if my_vec[first] != my_vec[last] {
+                is_palindrome=false;
+                break;
+            }
+            
+            last = last - 1;
+            first = first +1;
+        }
+    }
+    is_palindrome
+}
+
+
+```
+
+```rs 
+// Problem 5 is tricky so added in revisit problem
+```
+
+```rs
+// Problem 6: Write a function that implements the logic,
+// 'You can see the movie if you are 17 or older, or if you are 13 or older and have a parent's permission.'
+// Note: This means that if you 17 or older, you implicitly have permission. 
+
+fn can_see_movie(age: i32, permission: bool) -> bool {
+    // Write your code here to implement the logic
+    if age >= 17 {
+        return true;
+    } else if age >= 13 && permission == true {
+        return true;
+    }  else {
+        return false;
+    }
+}
+
+// solution2 
+fn can_see_movie(age: i32, permission: bool) -> bool {
+    (age >= 17) || (age >= 13 && permission)
+}
+
+fn main() {
+    println!("John who is 18, can see the move: {}", can_see_movie(18, true));
+}
 ```
 
 
