@@ -1,3 +1,6 @@
+mod ownership_basics;
+
 fn main() {
-    println!("Hello, world!");
+    // covers the ownership_basics
+    ownership_basics::ownership_basics();
 }
