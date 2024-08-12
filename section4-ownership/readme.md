@@ -30,7 +30,4 @@ https://doc.rust-lang.org/book/foreword.html
 
 
 ```
-
-| stage | Stack | Heap |
-| --- | --- | --- |
-| let s1 = String::from("world"); |
+![stack_heap](ownership_basics_stack_heap.drawio.png)
