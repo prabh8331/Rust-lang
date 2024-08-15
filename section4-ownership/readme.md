@@ -143,6 +143,9 @@ fn stack_function(mut var: i32) {
 
 ### Practice on Ownership
 
+
+Problem 1 and its variations - 
+
 ```rs
 // Problem 1: Fix the code below so that it compiles
 
@@ -160,6 +163,8 @@ fn some_function(a1: String, a2: &str) {
 }
 
 ```
+
+Problem 2 and it variations -- 
 
 ```rs
 // Problem 2: 
@@ -198,4 +203,87 @@ fn main() {
 // Elements in temporary vector are: [1]
 // Popped element: 1
 
+
+
+
 ```
+
+```rs
+
+
+// concept 2 - lets try to print temp outside the loop
+fn main() {
+    let mut my_vec = vec![1, 2, 3, 4, 5];
+    let mut temp;
+    
+    println!("{}",my_vec.len());
+    
+    while my_vec.len()!=1 {
+        temp = my_vec.clone(); // Something wrong on this line
+        println!("Elements in temporary vector are: {:?}", temp);
+
+
+        if let Some(last_element) = my_vec.pop() { // pop() is used to remove an element from the vec
+            println!("Popped element: {}", last_element);
+        }
+    }
+    
+    
+    println!("Elements in temporary vector are: {:?}", temp); // this will give error -- error[E0381]: used binding temp is possibly-uninitialized
+
+    // In Rust, a variable must be fully initialized before it can be used. The error E0381 occurs because the compiler cannot guarantee that temp has been initialized before it is used in the println! statement outside the loop.
+    //  The issue with the final println! statement is the compiler cannot guarantee that the loop will run even once. If the loop doesn't run, temp will be uninitialized when you try to print it outside the loop. so in rust a variable must be fully initialized before it can be used
+
+}
+
+```
+
+```rs 
+fn main() {
+    let mut my_vec = vec![1, 2, 3, 4, 5];
+    let mut temp = vec![]; // Initialized to an empty vector to avoid uninitialized error
+    
+    while !my_vec.is_empty() {
+        temp = my_vec.clone();
+        println!("Elements in temporary vector are: {:?}", temp);
+
+        if let Some(last_element) = my_vec.pop() {
+            println!("Popped element: {}", last_element);
+        }
+    }
+
+    println!("Elements in temp at end: {:?}", temp);
+    println!("Elements in my_ves at end: {:?}", my_vec);
+     // this code will run because - 
+        //     Variable Defined Outside the Loop:
+
+            // When a variable like temp is defined outside the loop, its scope covers the entire function (or block). This means:
+            // Initialization: It is initialized only once.
+            // Reassignment: In each iteration, temp is reassigned a new value.
+            // Dropping: The previous value held by temp is dropped only when the variable itself is dropped. Since temp is not dropped at the end of each iteration (only its previous value is discarded), the variable itself remains valid until the end of the function.
+
+}
+
+```
+
+```rs
+
+fn main() {
+    let mut my_vec = vec![1, 2, 3, 4, 5];
+
+    while !my_vec.is_empty() {
+        let temp = my_vec.clone(); // temp is initialized inside the loop
+        println!("Elements in temporary vector are: {:?}", temp);
+
+        if let Some(last_element) = my_vec.pop() {
+            println!("Popped element: {}", last_element);
+        }
+    }
+        // println!("Elements in temp at end: {:?}", temp); // will not work will give error - not found in this scope //  The variable is created and dropped in each iteration, limiting its lifetime to the iteration block
+    println!("Elements in my_ves at end: {:?}", my_vec);
+}
+
+
+```
+
+
