@@ -307,3 +307,59 @@ fn main() {
 ```
 
 
+```rs
+// Problem 3: Fix the code so that it compiles.
+
+
+fn main() {
+    {
+        let str1 = generate_string();
+    }
+    let str2 = str1;   // Something wrong with this line
+}
+
+fn generate_string() -> String {
+    let some_string = String::from("I will generate a string");
+    some_string
+}
+
+```
+solution 1- 
+
+```rs
+// Problem3 - Solution1: 
+#[allow(unused_variables)] // this line will supress the warning of unused variables
+
+fn main() {
+    let str1 = {
+        let str1 = generate_string();
+        str1
+    };
+     
+    let str2 = str1;  
+}
+
+fn generate_string() -> String {
+    let some_string = String::from("I will generate a string");
+    some_string
+}
+
+
+```
+
+
+```rs
+
+// Problem3 - Solution2: 
+#[allow(unused_variables)] // this line will supress the warning of unused variables
+
+fn main() {
+    let str1 = generate_string();  // moveing this statment out of the scope 
+    let str2 = str1;  
+}
+
+fn generate_string() -> String {
+    let some_string = String::from("I will generate a string");
+    some_string
+}
+```
