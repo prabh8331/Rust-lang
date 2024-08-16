@@ -154,10 +154,30 @@ fn main() {
     let s2: &str = "Nouman";
     some_function(s1, s2); // Something is wrong here
     // Ans 
-    // some_function(s1.clone(), s2.clone());
+    // some_function(s1.clone(), s2.clone());    // this is a solution i give and this runs but there was no need to do s2.clone() only s2 would have worked
+    // why? - &str is a reference: The reference itself (the & part) is a pointer, which is a fixed-size object. This pointer is stored on the stack.
+    // 
+    // the data of &str
+    //  
+    // let s: &str = "Hello, world!";    // Here, "Hello, world!" is a string literal, and s is a reference to that literal. The reference s is on the stack, while the data "Hello, world!" is in a read-only section of memory (program's binary - .rodata).
+    // 
+    // let s: String = String::from("Hello, world!");
+    // let slice: &str = &s;
+    // Here, s is a String (which owns its heap-allocated data), and slice is a reference to the string data. The reference slice is on the stack, but the data it points to is on the heap.
+
+
+
+    //  Ans 2 - 
+    // some_function(s1.clone(), s2);   // as s1 is heap-allocated type if pass s1 without clone s1 in main will be no longer valid after funciton call because it pass its owner ship to function's variable
+    // Passing s2 to some_function does not transfer ownership, it just passes a reference. This means that the original s2 in main is still valid and usable after the function call.
+
+    // Ans 3 - 
+    // some_function(&s1, s2);    // Here, &s1 creates a reference to the String s1. This reference is a non-owning pointer to the data owned by s1. The String s1 is passed as a reference to some_function, so ownership remains with main, allowing you to use s1 after the function call.
+
     println!("{} {}", s1, s2);
 }
 
+// fn some_function(a1: &String, a2: &str) {      // part of ans 3 - updating the finrst input to reference String
 fn some_function(a1: String, a2: &str) {
     println!("{} {}", a1, a2);
 }
