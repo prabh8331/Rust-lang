@@ -363,3 +363,28 @@ fn generate_string() -> String {
     some_string
 }
 ```
+
+
+## Borrowing Basics
+
+In rust, borrowing allows multiple parts of a program to interact with data in a safe and efficient manner
+
+Borrowing is basically Establishing a reference to some data
+    - Just like pointers with some rules and limitations
+    - Does not take ownership (reference do not assume ownership of values)
+
+Why Borrowing?
+    - Prevent unnecessary momory usage for performance imporvment
+        - consider a function which only required to read in the data - it is **cheaper to provide a reference** to the data **instead** of passing a **clone of the data or transferring** the ownership of the data
+    - when Ownership not required
+        - when a function does not required to have ownership to do the work its better to pass reference 
+
+Borrowing rule:
+    - At any time, you can have either one mutable reference or any number of immutable references
+    - References must always be valid
+
+    These rules solves out two porblems of:
+        - Data race
+        - Dangling references
+
+        
