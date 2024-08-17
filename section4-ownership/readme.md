@@ -383,8 +383,7 @@ Borrowing rule:
     - At any time, you can have either one mutable reference or any number of immutable references
     - References must always be valid
 
-    These rules solves out two porblems of:
+These rules solves out two problems of:
         - Data race
         - Dangling references
 
-        

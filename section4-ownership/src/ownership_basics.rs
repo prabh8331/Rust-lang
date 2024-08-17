@@ -1,5 +1,7 @@
 pub fn ownership_basics() {
 
+    println!("start of ownership");
+
     // Ownership Basics
 
     /*
@@ -11,5 +13,7 @@ pub fn ownership_basics() {
      let s1 = String::from("world");
      let s2 = s1;
     //  println!("s1 is:{s1}")  // will give error
+
+    println!("end of ownership");
 
 }
