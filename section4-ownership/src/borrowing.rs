@@ -36,7 +36,7 @@ pub fn borrowing() {
     // by enforcing the borrowing rules rust either allows reading of data through multiple immutable reference or updating or writting to data through a single mutable reference
     // this ensures that muliple parts of code can safely interact with the data without causing a race condition
 
-
+/*
 
     let vec_2 = { // storing the return value from the scope to vec_2
         let vec_3 = vec![1, 2, 3];  // creating vec_3
@@ -45,7 +45,20 @@ pub fn borrowing() {
     // this error is due to dangling reference inside the inner scope
     //  we created vec3, which has the ownership , then we returned a reference, and at the end of scope vec3 will dropped and cleaned up, which mwans that a reference to vec3 which returned will be a dangling reference, this is voilation of rule two
     
+*/
+
+    // Borrowing in Function
+        // - At any time, you can have either one mutable reference or any number of immutable references
+        // - references must always be valid
+    let vec_1 = vec![1, 2, 3];
+    takes_ownership(vec_1);
+
+
 
     println!("end of borrowing");
 
+}
+
+fn takes_ownership(vec: Vec<i32>) {
+    println!("vec is : {:?}", vec);
 }
