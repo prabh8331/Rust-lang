@@ -387,3 +387,58 @@ These rules solves out two problems of:
         - Data race
         - Dangling references
 
+
+### Practice on borrowing
+
+```rs 
+
+// Problem 1: Fix the code below 
+
+fn main() {
+    let mut some_vec = vec![1, 2, 3];
+    let first = get_first_element(&some_vec);
+    some_vec.push(4);
+    println!("The first number is: {}", first);
+}
+
+fn get_first_element(num_vec: &Vec<i32>) -> &i32 {
+    &num_vec[0]
+}
+
+```
+my first solution which works I did not return the reference from get_first_element and passed the ownership instead, that works but not most optimal way- 
+
+solution: 
+```rs
+
+fn main() {
+    let mut some_vec = vec![1, 2, 3];
+    let first = get_first_element(&some_vec);
+    println!("The first number is: {}", first);
+    some_vec.push(4);
+}
+
+fn get_first_element(num_vec: &Vec<i32>) -> &i32 {
+    &num_vec[0]
+}
+
+
+```
+
+Doubts arise from this solution
+    1. previously we see that returing reference is not a good idea because it droppes the variable
+    2. but how this code is operating? why this is working?
+
+concepts- 
+    in qn when some_vec.push(4) was before the printline of first, it was comming inside the scope of immutable reference scope, and when we are making some change it is kind of borrowing it as a mutable 
+    //some_vec.push(4); //cannot borrow `some_vec` as mutable because it is also borrowed as immutable
+
+    /*
+    The problem with borrowing arises when we attempt to modify the some_vec vector 
+    after obtaining an immutable reference to its first element. 
+    This situation violates Rust's borrowing rules, which dictate that we cannot modify a variable
+    while immutable references to it are still in scope. 
+    
+    This rule ensures the safety and integrity of data in Rust, 
+    preventing potential conflicts and data races
+    */
