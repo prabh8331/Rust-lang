@@ -390,6 +390,25 @@ These rules solves out two problems of:
 
 ### Practice on borrowing
 
+
+Problem 1 - 
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=188e194940a043021c365b4e5f659e36
+
+solution - 
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=e2798727cf0f2e21fa570bc40dbc70ab
+
+Problem 2- 
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=b8f6b55a9e112ffff9cc613cccb6834f
+
+solution - 
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=8aca905be6cccda9049aafd142a92302
+
+Problem 3 -
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=c525cec73282e77e874cf32a019a0896
+
+solution -
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=e5038788c9d9c3d085d54f526b69e582
+
 ```rs 
 
 // Problem 1: Fix the code below 
