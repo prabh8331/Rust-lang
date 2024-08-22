@@ -446,7 +446,7 @@ fn get_first_element(num_vec: &Vec<i32>) -> &i32 {
 
 Doubts arise from this solution
     1. previously we see that returing reference is not a good idea because it droppes the variable
-    2. but how this code is operating? why this is working?
+    2. but how this code is running? why this is working?
 
 concepts- 
     in qn when some_vec.push(4) was before the printline of first, it was comming inside the scope of immutable reference scope, and when we are making some change it is kind of borrowing it as a mutable 
@@ -461,3 +461,5 @@ concepts-
     This rule ensures the safety and integrity of data in Rust, 
     preventing potential conflicts and data races
     */
+
+![alt text](problem1-stack_heap.drawio.png)
