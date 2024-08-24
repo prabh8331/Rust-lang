@@ -46,6 +46,7 @@ List of Useful Resources for Learning Rust
 
 
 
+
 Resources Covering Basic Concepts of the Language
 
 1. Rust Programming Language
